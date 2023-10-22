@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_with_firebase/screens/signup_screen.dart';
+import 'package:todo_app_with_firebase/screens/task_list_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -33,7 +34,11 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 10,),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+                  return const TaskListScreen();
+                }));
+              },
               child: const Text('Login'),
             ),
             const SizedBox(height: 10,),

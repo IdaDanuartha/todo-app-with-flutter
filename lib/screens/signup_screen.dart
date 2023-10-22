@@ -46,7 +46,11 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             const SizedBox(height: 10,),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+                  return const LoginScreen();
+                }));
+              },
               child: const Text('Create Account'),
             ),
             const SizedBox(height: 10,),
