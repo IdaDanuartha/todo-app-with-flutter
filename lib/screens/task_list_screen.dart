@@ -92,7 +92,28 @@ class _TaskListScreenState extends State<TaskListScreen> {
                         color: Colors.orange[800],
                       ),
                       IconButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            showDialog(context: context, builder: (ctx) {
+                              return AlertDialog(
+                                title: Text("Confirmation!!!"),
+                                content: Text("Are you sure to delete this task?"),
+                                actions: [
+                                  TextButton(
+                                      onPressed: (){
+                                        Navigator.of(ctx).pop();
+                                      },
+                                      child: Text("No"),
+                                  ),
+                                  TextButton(
+                                    onPressed: (){
+                                      Navigator.of(ctx).pop();
+                                    },
+                                    child: Text("Yes, delete it"),
+                                  )
+                                ],
+                              );
+                            });
+                          },
                           icon: Icon(Icons.delete),
                           iconSize: 18,
                           color: Colors.red[800],
