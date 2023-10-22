@@ -21,7 +21,7 @@ class _SignupScreenState extends State<SignupScreen> {
         title: const Text("Signup Screen"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             TextField(
@@ -56,22 +56,22 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(height: 10,),
             ElevatedButton(
               onPressed: () {
-                var fullName = fullNameController.text.trim();
-                var email = emailController.text.trim();
-                var password = passwordController.text.trim();
-                var confirmPass = confirmPasswordController.text.trim();
-
-                if(fullName.isEmpty || email.isEmpty || password.isEmpty || confirmPass.isEmpty) {
-                  return;
-                }
-
-                if(password.length < 6) {
-                  return;
-                }
-
-                if(password != confirmPass) {
-                  return;
-                }
+                // var fullName = fullNameController.text.trim();
+                // var email = emailController.text.trim();
+                // var password = passwordController.text.trim();
+                // var confirmPass = confirmPasswordController.text.trim();
+                //
+                // if(fullName.isEmpty || email.isEmpty || password.isEmpty || confirmPass.isEmpty) {
+                //   return;
+                // }
+                //
+                // if(password.length < 6) {
+                //   return;
+                // }
+                //
+                // if(password != confirmPass) {
+                //   return;
+                // }
 
                 Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
                   return const LoginScreen();

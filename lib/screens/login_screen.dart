@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
         title: const Text("Login Screen"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             const TextField(

@@ -16,7 +16,7 @@ class _LandingScreenState extends State<LandingScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            FlutterLogo(size: 150,),
+            Image.asset("assets/images/todo-img.png", width: 300, height: 300,),
             SizedBox(height: 10,),
             ElevatedButton(
                 onPressed: (){
@@ -24,7 +24,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     return const LoginScreen();
                   }));
                 },
-                child: Text("Enter")
+                child: Text("Enter to Todo App")
             )
           ],
         ),

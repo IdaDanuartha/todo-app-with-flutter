@@ -10,25 +10,27 @@ class AddTaskScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Add Task"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          children: [
-            const TextField(
-              decoration: InputDecoration(
-                  hintText: 'Task name'
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              const TextField(
+                decoration: InputDecoration(
+                    hintText: 'Task name'
+                ),
               ),
-            ),
-            const SizedBox(height: 10,),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-                  return const TaskListScreen();
-                }));
-              },
-              child: const Text('Add new task'),
-            ),
-          ],
+              const SizedBox(height: 10,),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+                    return const TaskListScreen();
+                  }));
+                },
+                child: const Text('Add new task'),
+              ),
+            ],
+          ),
         ),
       ),
     );
