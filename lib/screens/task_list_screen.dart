@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app_with_firebase/screens/add_task_screen.dart';
 import 'package:todo_app_with_firebase/screens/login_screen.dart';
+import 'package:todo_app_with_firebase/screens/profile_screen.dart';
 import 'package:todo_app_with_firebase/screens/update_task_screen.dart';
 
 class TaskListScreen extends StatefulWidget {
@@ -18,12 +19,16 @@ class _TaskListScreenState extends State<TaskListScreen> {
         title: const Text("Task List Screen"),
         actions: [
           IconButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return const ProfileScreen();
+                }));
+              },
               icon: Icon(Icons.person)
           ),
           IconButton(
               onPressed: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
                   return const LoginScreen();
                 }));
               },
@@ -65,7 +70,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                         ),
                       ),
                       SizedBox(height: 3,),
-                      Text("Description of task",
+                      Text("Task description...",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 13
