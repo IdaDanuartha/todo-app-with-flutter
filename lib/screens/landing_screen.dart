@@ -12,14 +12,11 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Landing Screen"),
-      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            FlutterLogo(size: 100,),
+            FlutterLogo(size: 150,),
             SizedBox(height: 10,),
             ElevatedButton(
                 onPressed: (){

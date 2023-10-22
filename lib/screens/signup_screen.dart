@@ -9,6 +9,11 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  var fullNameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,26 +24,30 @@ class _SignupScreenState extends State<SignupScreen> {
         padding: const EdgeInsets.all(8),
         child: Column(
           children: [
-            const TextField(
+            TextField(
+              controller: fullNameController,
               decoration: InputDecoration(
-                  hintText: 'Fullname'
+                  hintText: 'Full Name'
               ),
             ),
             const SizedBox(height: 10,),
-            const TextField(
+            TextField(
+              controller: emailController,
               decoration: InputDecoration(
                   hintText: 'Email'
               ),
             ),
             const SizedBox(height: 10,),
-            const TextField(
+            TextField(
+              controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
                   hintText: 'Password'
               ),
             ),
             const SizedBox(height: 10,),
-            const TextField(
+            TextField(
+              controller: confirmPasswordController,
               obscureText: true,
               decoration: InputDecoration(
                   hintText: 'Confirm Password'
@@ -47,6 +56,23 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(height: 10,),
             ElevatedButton(
               onPressed: () {
+                var fullName = fullNameController.text.trim();
+                var email = emailController.text.trim();
+                var password = passwordController.text.trim();
+                var confirmPass = confirmPasswordController.text.trim();
+
+                if(fullName.isEmpty || email.isEmpty || password.isEmpty || confirmPass.isEmpty) {
+                  return;
+                }
+
+                if(password.length < 6) {
+                  return;
+                }
+
+                if(password != confirmPass) {
+                  return;
+                }
+
                 Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
                   return const LoginScreen();
                 }));
