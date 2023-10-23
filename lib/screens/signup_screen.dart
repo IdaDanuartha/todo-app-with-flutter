@@ -22,7 +22,7 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
+        child: ListView(
           children: [
             TextField(
               controller: fullNameController,
@@ -56,26 +56,46 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(height: 10,),
             ElevatedButton(
               onPressed: () {
-                // var fullName = fullNameController.text.trim();
-                // var email = emailController.text.trim();
-                // var password = passwordController.text.trim();
-                // var confirmPass = confirmPasswordController.text.trim();
-                //
-                // if(fullName.isEmpty || email.isEmpty || password.isEmpty || confirmPass.isEmpty) {
-                //   return;
-                // }
-                //
-                // if(password.length < 6) {
-                //   return;
-                // }
-                //
-                // if(password != confirmPass) {
-                //   return;
-                // }
+                var fullname = fullNameController.text.trim();
+                var email = emailController.text.trim();
+                var password = passwordController.text.trim();
+                var confirmPass = confirmPasswordController.text.trim();
 
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-                  return const LoginScreen();
-                }));
+                if(fullname.isEmpty || email.isEmpty || password.isEmpty || confirmPass.isEmpty) {
+                  showDialog(context: context, builder: (ctx) {
+                    return AlertDialog(
+                      title: Text("Input is empty!"),
+                      content: Text("Please fill fullname, email, password and confirm password input!"),
+                      actions: [
+                        TextButton(
+                          onPressed: (){
+                            Navigator.of(ctx).pop();
+                          },
+                          child: Text("Ok"),
+                        ),
+                      ],
+                    );
+                  });
+                } else if(password != confirmPass) {
+                  showDialog(context: context, builder: (ctx) {
+                    return AlertDialog(
+                      title: Text("Password not match!"),
+                      content: Text("Your password and confirmation password don't match"),
+                      actions: [
+                        TextButton(
+                          onPressed: (){
+                            Navigator.of(ctx).pop();
+                          },
+                          child: Text("Ok"),
+                        ),
+                      ],
+                    );
+                  });
+                } else {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+                    return const LoginScreen();
+                  }));
+                }
               },
               child: const Text('Create Account'),
             ),

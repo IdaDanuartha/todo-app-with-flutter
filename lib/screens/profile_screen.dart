@@ -12,21 +12,28 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: [
-            Column(
-                children: [
-                Image.asset('assets/images/avatar-img.png'),
-                SizedBox(height: 20,),
-                Text("Ida Putu Sucita Danuartha", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),),
-                SizedBox(height: 10,),
-                Text("danuart21@gmail.com", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
-                SizedBox(height: 10,),
-                Text("Total 10 tasks created", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Colors.green[600])),
-              ]
+              Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      width: 200,
+                      child: Image.asset('assets/images/avatar-img.png'),
+                    ),
+                    SizedBox(height: 20,),
+                    Text("Ida Putu Sucita Danuartha", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),),
+                    SizedBox(height: 10,),
+                    Text("danuart21@gmail.com", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+                    SizedBox(height: 10,),
+                    Text("Total 10 tasks created", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Colors.green[600])),
+                  ]
+                ),
+              ],
             ),
-          ],
+          ]
         ),
       ),
     );

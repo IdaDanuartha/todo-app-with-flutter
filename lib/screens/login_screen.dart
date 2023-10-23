@@ -10,6 +10,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,15 +21,17 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
+        child: ListView(
           children: [
-            const TextField(
+            TextField(
+              controller: emailController,
               decoration: InputDecoration(
                 hintText: 'Email'
               ),
             ),
             const SizedBox(height: 10,),
-            const TextField(
+            TextField(
+              controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
                   hintText: 'Password'
@@ -35,9 +40,29 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 10,),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-                  return const TaskListScreen();
-                }));
+                var email = emailController.text.trim();
+                var password = passwordController.text.trim();
+
+                if(email.isEmpty || password.isEmpty) {
+                  showDialog(context: context, builder: (ctx) {
+                    return AlertDialog(
+                      title: Text("Input is empty!"),
+                      content: Text("Please fill email and password input!"),
+                      actions: [
+                        TextButton(
+                          onPressed: (){
+                            Navigator.of(ctx).pop();
+                          },
+                          child: Text("Ok"),
+                        ),
+                      ],
+                    );
+                  });
+                } else {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+                    return const TaskListScreen();
+                  }));
+                }
               },
               child: const Text('Login'),
             ),

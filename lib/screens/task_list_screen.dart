@@ -4,14 +4,9 @@ import 'package:todo_app_with_firebase/screens/login_screen.dart';
 import 'package:todo_app_with_firebase/screens/profile_screen.dart';
 import 'package:todo_app_with_firebase/screens/update_task_screen.dart';
 
-class TaskListScreen extends StatefulWidget {
+class TaskListScreen extends StatelessWidget {
   const TaskListScreen({super.key});
 
-  @override
-  State<TaskListScreen> createState() => _TaskListScreenState();
-}
-
-class _TaskListScreenState extends State<TaskListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +50,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
               margin: EdgeInsets.only(bottom: 10),
 
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.blueAccent, width: 2)
+                  border: Border.all(color: Colors.blueAccent, width: 2)
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,8 +60,8 @@ class _TaskListScreenState extends State<TaskListScreen> {
                     children: [
                       Text("Task " + index.toString(),
                         style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18
                         ),
                       ),
                       SizedBox(height: 3,),
@@ -81,10 +76,10 @@ class _TaskListScreenState extends State<TaskListScreen> {
                   Row(
                     children: [
                       IconButton(
-                          onPressed: (){},
-                          icon: Icon(Icons.done),
-                          iconSize: 18,
-                          color: Colors.green[700],
+                        onPressed: (){},
+                        icon: Icon(Icons.done),
+                        iconSize: 18,
+                        color: Colors.green[700],
                       ),
                       IconButton(
                         onPressed: (){
@@ -97,31 +92,31 @@ class _TaskListScreenState extends State<TaskListScreen> {
                         color: Colors.orange[800],
                       ),
                       IconButton(
-                          onPressed: (){
-                            showDialog(context: context, builder: (ctx) {
-                              return AlertDialog(
-                                title: Text("Confirmation!!!"),
-                                content: Text("Are you sure to delete this task?"),
-                                actions: [
-                                  TextButton(
-                                      onPressed: (){
-                                        Navigator.of(ctx).pop();
-                                      },
-                                      child: Text("No"),
-                                  ),
-                                  TextButton(
-                                    onPressed: (){
-                                      Navigator.of(ctx).pop();
-                                    },
-                                    child: Text("Yes, delete it"),
-                                  )
-                                ],
-                              );
-                            });
-                          },
-                          icon: Icon(Icons.delete),
-                          iconSize: 18,
-                          color: Colors.red[800],
+                        onPressed: (){
+                          showDialog(context: context, builder: (ctx) {
+                            return AlertDialog(
+                              title: Text("Confirmation!!!"),
+                              content: Text("Are you sure to delete this task?"),
+                              actions: [
+                                TextButton(
+                                  onPressed: (){
+                                    Navigator.of(ctx).pop();
+                                  },
+                                  child: Text("No"),
+                                ),
+                                TextButton(
+                                  onPressed: (){
+                                    Navigator.of(ctx).pop();
+                                  },
+                                  child: Text("Yes, delete it"),
+                                )
+                              ],
+                            );
+                          });
+                        },
+                        icon: Icon(Icons.delete),
+                        iconSize: 18,
+                        color: Colors.red[800],
                       ),
                     ],
                   )

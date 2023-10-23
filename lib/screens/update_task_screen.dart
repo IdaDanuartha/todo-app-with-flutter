@@ -12,7 +12,7 @@ class UpdateTaskScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
-        child: Column(
+        child: ListView(
           children: [
             TextField(
               controller: TextEditingController()..text = 'Task 1',

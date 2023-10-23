@@ -13,7 +13,7 @@ class AddTaskScreen extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8),
-          child: Column(
+          child: ListView(
             children: [
               const TextField(
                 decoration: InputDecoration(
